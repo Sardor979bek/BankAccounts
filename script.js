@@ -8,11 +8,9 @@ function clickHandler(event) {
 
     var account;
     account = new BankAccount();
-    // account.createAccount(nametxt, deposittxt);
     BankAccount.accountInfoList.push(account.createAccount(nametxt, deposittxt));
 
     textArea.value += account.getTextArea;
-
 }
 
 class BankAccount {
