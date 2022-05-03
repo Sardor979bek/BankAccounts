@@ -8,20 +8,24 @@ function clickHandler(event) {
 
     var account;
     account = new BankAccount();
+    // account.createAccount(nametxt, deposittxt);
     BankAccount.accountInfoList.push(account.createAccount(nametxt, deposittxt));
-    var lenghtOfList = BankAccount.accountInfoList.length;
 
-    textArea.value += "Account Name : " + BankAccount.accountInfoList[lenghtOfList - 1].name + "  Balance : " + BankAccount.accountInfoList[lenghtOfList - 1].deposit + "\n ";
+    textArea.value += account.getTextArea;
+
 }
 
 class BankAccount {
     static accountInfoList = [];
-    constructor(name, deposit) {
-        this.name = name;
-        this.deposit = deposit;
-    }   
+    #name;
+    #balance;
     createAccount(name, deposit) {
-        return new BankAccount(name, deposit);
+        this.#name = name;
+        this.#balance = parseFloat(deposit);    
+    }
+
+    get getTextArea(){
+        return "Account Name : " + this.#name + "  Balance : " + this.#balance + "\n ";
     }
 }
 
